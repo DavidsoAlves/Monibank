@@ -1,9 +1,7 @@
 export default function confirmaCPF (campo){
     const cpf = campo.value.replace(/\.|\/|-/g,"");
     if(validaNumReptido(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)){
-        console.log("Cpf não valido")
-    }else{
-        console.log("Cpf Válido")
+        campo.setCustomValidity('Esse cpf não é válido')
     }
 }
 
@@ -52,6 +50,5 @@ function validaSegundoDigito(cpf){
     if(soma == 10 || soma == 11){
         soma = 0;
     }
-    console.log(soma);
     return soma != cpf[10]
 }
